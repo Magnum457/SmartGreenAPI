@@ -14,6 +14,13 @@ mongoose.connect('mongodb+srv://smartgreen:smartgreen@cluster0-ftmkt.mongodb.net
     useNewUrlParser: true
 })
 
+// teste de conexão do mongoDB
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', () => {
+    console.log('conexão estabelecida')
+})
+
 // chamada das rotas
 httpServer.use(cors())
 httpServer.use(express.json())
