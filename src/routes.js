@@ -4,6 +4,7 @@ const express = require('express')
 // controllers
 const UserController = require('./controllers/UserController')
 const SoilController = require('./controllers/SoilController')
+const AuthController = require('./controllers/AuthController')
 
 // rotas
 const routes = express.Router()
@@ -22,5 +23,7 @@ const routes = express.Router()
     routes.put('/soil', SoilController.update)
     routes.delete('/soil', SoilController.delete)
 
+    // auth
+    routes.post('/auth', AuthController.auth)
 
 module.exports = routes
